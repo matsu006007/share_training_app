@@ -10,7 +10,8 @@
 
 ### Association
 
-- has_many
+- has_many :tweets
+- has_many :comments
 
 
 ## tweets テーブル
@@ -23,6 +24,9 @@
 
 ### Association
 
+- belongs_to :user
+- has_many :comments
+
 
 
 ## comments テーブル
@@ -33,3 +37,6 @@
 | user   | references | foreign_key: true |
 
 ### Association
+
+- belongs_to :user
+- belongs_to :tweet 
