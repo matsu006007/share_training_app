@@ -1,0 +1,9 @@
+<h1>Tweet一覧ページ</h1>
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<%= link_to "Tweetする", new_tweet_path %>
+
+<% @tweets.each do |tweet| %>
+  <%= tweet.content %>
+  <%= tweet.genre_id %>
+<% end %>
