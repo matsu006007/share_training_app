@@ -5,5 +5,5 @@
 
 <% @tweets.each do |tweet| %>
   <%= tweet.content %>
-  <%= tweet.genre_id %>
+  <%= tweet.genre.name %>
 <% end %>
