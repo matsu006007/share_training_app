@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+
   private
 
   def tweet_params
