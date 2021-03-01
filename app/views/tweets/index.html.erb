@@ -86,7 +86,7 @@
   <% @tweets.each do |tweet| %>
     <tbody class="border-bottom border-2">
       <tr>
-        <th ><%= tweet.user.nickname %></th>
+        <th ><%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %></th>
         <th ><%= tweet.genre.name %></th>
         <th ><%= tweet.content %></th>
       </tr>
