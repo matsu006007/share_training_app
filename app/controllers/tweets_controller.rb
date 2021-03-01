@@ -13,6 +13,10 @@ class TweetsController < ApplicationController
     redirect_to tweets_path
   end
 
+  def show
+    @tweets = Tweet.find(params[:id])
+  end
+
 
   private
 
