@@ -1,0 +1,12 @@
+<h1>Tweet詳細ページ</h1>
+
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<%= link_to "Tweet一覧へ戻る", tweets_path %>
+
+
+<div class="contents row">
+  <div class="contents-child">
+      <%= @tweets.genre.name %>
+      <p><%= @tweets.content %></p>
+  </div>
+</div>
