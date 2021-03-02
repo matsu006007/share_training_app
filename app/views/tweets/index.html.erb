@@ -65,7 +65,7 @@
   <body class="d-flex h-100 text-center text-dark p-3 p-sm-5 mb-4 bg-img">
     
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
+  <header class="mb-5">
     <div>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link active btn-warning" aria-current="page" href="/tweets/new" >アウトプットする</a>
@@ -74,7 +74,7 @@
     </div>
   </header>
 
-  <main class="px-3 mt-5">
+  <main class="px-3">
     <div class="container">
     <div class="card mx-auto" style="width: 75%;">
   <div class="card-body">
@@ -85,7 +85,7 @@
     <tr>
       <th scope="col" class="w-20" style="font-size: 15px;">ニックネーム</th>
       <th scope="col" class="w-20" style="font-size: 15px;" >ジャンル</th>
-      <th scope="col" class="w-60" style="font-size: 15px;">コメント</th>
+      <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
     </tr>
     </thead>
   <% @tweets.each do |tweet| %>
@@ -93,7 +93,7 @@
       <tr>
         <th><%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %></th>
         <th><%= tweet.genre.name %></th>
-        <th><%= tweet.content %></th>
+        <th><%= tweet.title %></th>
         <th><%= link_to "詳細", tweet_path(tweet.id)%></th>
       </tr>
     </tbody>
