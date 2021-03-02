@@ -18,7 +18,7 @@
 
 
 <div id='messages'>
-  <% @messages.reverse_each do |message| %>
+  <% @messages.reverse.each do |message| %>
     <p><%= message.text %></p>
   <% end %>
 </div>
