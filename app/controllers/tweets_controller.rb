@@ -9,21 +9,26 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.create(tweet_params)
-    redirect_to tweets_path
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+       redirect_to tweets_path
+    else
+      @tweet =Tweet.new(tweet_params)
+      render :new
+    end
   end
 
   def show
     @tweet = Tweet.find(params[:id])
     @message = Message.new
-    @messages = Message.includes(:tweet).order("created_at DESC")
+    @messages = Message.includes(:tweet)
   end
 
 
   private
 
   def tweet_params
-    params.require(:tweet).permit(:content, :genre_id).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:title, :content, :genre_id).merge(user_id: current_user.id)
   end
 
 end
