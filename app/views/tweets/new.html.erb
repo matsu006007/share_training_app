@@ -4,6 +4,8 @@
 <%= link_to "Tweet一覧へ戻る", tweets_path %>
 
 <%= form_with model: @tweet, local: true do |f| %>
+  <h3>タイトル</h3>
+    <%= f.text_field :title %>
   <h3>ジャンルを選んでください</h3>
     <%= f.collection_select( :genre_id,Genre.all, :id, :name, {}) %>
   <h3>内容</h3>
