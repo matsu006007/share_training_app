@@ -14,7 +14,9 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweets = Tweet.find(params[:id])
+    @tweet = Tweet.find(params[:id])
+    @message = Message.new
+    @messages = Message.includes(:tweet).order("created_at DESC")
   end
 
 
