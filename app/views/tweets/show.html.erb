@@ -6,7 +6,19 @@
 
 <div class="contents row">
   <div class="contents-child">
-      <%= @tweets.genre.name %>
-      <p><%= @tweets.content %></p>
+      <%= @tweet.genre.name %>
+      <p><%= @tweet.content %></p>
   </div>
+</div>
+
+<%= form_with model: [@tweet,@message], local: true  do |f| %>
+  <%= f.text_field :text %>
+  <%= f.submit '送信' %>
+<% end %>
+
+
+<div id='messages'>
+  <% @messages.reverse_each do |message| %>
+    <p><%= message.text %></p>
+  <% end %>
 </div>
