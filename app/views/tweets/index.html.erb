@@ -46,8 +46,8 @@
         bottom: 30%;
       }
 
-      .btn-warning{
-        margin-right: 20px;
+      .nav-item{
+        margin-right:50px;
       }
 
       tbody{
@@ -65,20 +65,23 @@
   <body class="d-flex h-100 text-left text-dark" style="padding-top:200px">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto ">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top pt-4 pb-4 d-flex align-items-center">
+  <nav class="navbar navbar-expand-md navbar-dark bg-secondary fixed-top pt-4 pb-4 d-flex align-items-center">
   <div class="container-fluid">
     <a class="navbar-brand " href="#">Share Training</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault pull-right">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item active ">
-          <a class="nav-link active btn-warning text-dark " aria-current="page" href="/tweets/new" >アウトプットする</a>
+    <div class="collapse navbar-collapse position-relative" id="navbarsExampleDefault pull-right">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
+        <li class="nav-item ">
+          <a class="nav-link btn-warning text-dark w-100" href="/tweets/new" >投稿する</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-warning text-dark" href="/users/sign_out" data-method="delete" >ログアウト</a>
+          <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out"  >お悩み解消ページ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out" data-method="delete" >ログアウト</a>
         </li>
       </ul>
     </div>
