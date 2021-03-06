@@ -40,14 +40,6 @@
         }
       }
 
-      .bg-img{
-        background-image: url("assets/tweets_top.png");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-      }
-
       .btn-warning{
         margin-right: 20px;
       }
@@ -56,57 +48,34 @@
         font-size: 17px;
       }
 
+      .form-group{
+        margin-top: 10px;
+      }
+
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-dark p-3 p-sm-5 mb-4 bg-img">
+  <body class="d-flex h-100 text-center text-dark">
     
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-5">
     <div>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active btn-warning" aria-current="page" href="/tweets/new" >アウトプットする</a>
-        <a class="nav-link btn btn-warning" href="/users/sign_out" data-method="delete" >ログアウト</a>
+        <a class="nav-link active btn-warning" aria-current="page" href="/" >トップページへ戻る</a>
+        <a class="nav-link btn btn-warning" href="/users/sign_in" >ログイン</a>
       </nav>
     </div>
   </header>
 
   <main class="px-3">
     <div class="container">
-    <div class="card mx-auto" style="width: 75%;">
+    <div class="card mx-auto" style="width: 25%;">
+    <h1><%= t('.sign_up') %></h1>
   <div class="card-body">
-    <span class="display-6">投稿一覧（最新順）</span>
-  </div>
-  <table class="table table-hover">
-    <thead class=" border-bottom border-primary table-light">
-    <tr>
-      <th scope="col" class="w-20" style="font-size: 15px;">ニックネーム</th>
-      <th scope="col" class="w-20" style="font-size: 15px;" >ジャンル</th>
-      <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
-    </tr>
-    </div>
-  </main>
-
-  <footer class="mt-auto text-white-50">
-    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
-  </footer>
-</div>
-  </body>
-</html>
-
-
-
-
-
-
-
-
-<h1><%= t('.sign_up') %></h1>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
@@ -123,10 +92,6 @@
   <div class="form-group">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
-
-    <% if @minimum_password_length %>
-      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-    <% end %>
   </div>
 
   <div class="form-group">
@@ -138,5 +103,15 @@
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
   </div>
 <% end %>
+  </div>
+  </div>
+  </div>
+  </main>
 
-<%= render 'devise/shared/links' %>
+  <footer class="mt-auto text-white-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
+</div>
+  </body>
+</html>
+
