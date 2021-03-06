@@ -41,16 +41,23 @@
       }
 
       .bg-img{
-        background-image: url("assets/top_page.png");
+        background-image: url("assets/tweets_top.png");
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
       }
 
-      .px-3{
-        position: relative;
-        bottom: 30%;
+      a{
+        margin-right: 40px;
+      }
+
+      .display-1{
+        font-size:130px;
+      }
+
+      .lead{
+        font-size: 30px;
       }
     </style>
 
@@ -59,25 +66,20 @@
     <link href="cover.css" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-left text-dark p-3 p-sm-5 mb-4 bg-img">
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="/users/sign_up">サインイン</a>
-        <a class="nav-link" href="/users/sign_in">ログイン</a>
-      </nav>
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+  <div class="row px-3">
+    <div class="mx-auto text-center mt-5" >
+      <div class="display-1"><strong>Share Training</strong></div>
+      <p class="lead mt-4">みんなで日々のトレーニングをアウトプットしよう！</p>
+      <p class="lead mt-4">
+        <a href="/users/sign_up" class="btn btn-lg btn-secondary fw-bold border-white bg-warning w-25">サインイン</a>
+        <a href="/users/sign_in" class="btn btn-lg btn-secondary fw-bold border-white bg-warning w-25">ログイン</a>
+      </p>
     </div>
-  </header>
+  </div>
 
-  <main class="px-3">
-    <span class="display-2">Share Training</span>
-    <p class="lead mt-3">みんなで日々のトレーニングをアウトプットしよう！</p>
-    <p class="lead mt-3">
-      <a href="/users/sign_up" class="btn btn-lg btn-secondary fw-bold border-white bg-warning">サインイン</a>
-    </p>
-  </main>
-
-  <footer class="mt-auto text-white-50 text-center">
+  <footer class="fixed-bottom mt-auto text-white-50 text-center">
     <p>Cover template for <a href="/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
   </footer>
 </div>
