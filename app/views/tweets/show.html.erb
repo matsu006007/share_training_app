@@ -53,11 +53,21 @@
       }
 
       .navbar-brand {
-  background: url("assets/fukkin.png") no-repeat left center;
+  background: url('assets/fukkin.png') no-repeat left center;
   background-size: cover;
   height: 50px;
   width: 70px;
 }
+
+     .title-name{
+       margin-right: 20px;
+     }
+
+
+     b{
+       color: yellow;
+     }
+
 </style>
 
     
@@ -74,8 +84,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse position-relative" id="navbarsExampleDefault pull-right">
-      <h1 class="text-white">ShareTraining</h1>
-      <p><%= "ようこそ#{current_user.nickname}さん"%></p>
+      <div class="title-name">
+        <h1 class="text-white">ShareTraining</h1>
+      </div>
+      <div class="text-light">
+        <h5>ようこそ<b><%="#{current_user.nickname}"%></b>さん</h5>
+      </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
           <a class="nav-link btn btn-warning text-dark w-100" href="/tweets" >投稿一覧へ戻る</a>
