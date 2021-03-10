@@ -72,11 +72,13 @@
 
   <main class="px-3">
     <div class="container ">
-    <div class="card mx-auto" style="width: 25%;">
+    <div class="card mx-auto" style="width: 50%;">
     <h1><%= t('.sign_in') %></h1>
   <div class="card-body">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
   <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
