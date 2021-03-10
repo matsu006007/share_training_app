@@ -1,15 +1,157 @@
-<h1>プロフィール</h1>
+<!doctype html>
+<html lang="ja" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>カバー for Bootstrap · Bootstrap v5.0</title>
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<%= link_to "Tweet一覧へ戻る", tweets_path %>
+    <link rel="canonical" href="https://getbootstrap.jp/docs/5.0/examples/cover/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href=https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
 
 
-<div class="contents row">
-  <p><%= @nickname %></p>
-  <div class="contents-child">
-  <% @tweets.each do |tweet| %>
-      <%= tweet.genre.name %>
-      <p><%= tweet.content %></p>
-  <% end %>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .nav-item{
+        margin-right:40px;
+      }
+
+      tbody{
+        font-size: 17px;
+      }
+
+      .pagination {
+        justify-content: center;
+      }
+
+      .navbar-brand {
+  background: url("assets/fukkin.png") no-repeat left center;
+  background-size: cover;
+  height: 50px;
+  width: 70px;
+}
+</style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+<body class="d-flex h-100 text-left text-dark" >
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+  <nav class="navbar navbar-expand-md navbar-dark bg-secondary bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
+  <div class="container-fluid">
+    <a class="navbar-brand rounded-circle" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse position-relative" id="navbarsExampleDefault pull-right">
+      <h1 class="text-white">ShareTraining</h1>
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
+        <li class="nav-item ">
+          <a class="nav-link btn btn-warning text-dark w-100" href="/tweets" >投稿一覧へ戻る</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out" data-method="delete" >ログアウト</a>
+        </li>
+      </ul>
+    </div>
   </div>
+  </nav>
+
+  <main class="px-3" style= "margin-top:100px">
+    <div class="container h-100">
+    <div class="card mx-auto" style="width: 50%;">
+      <div class="card-body ">
+        <div class="h2 bg-warning">プロフィール</div>
+      </div>
+    <table class="table table-hover">
+      <tbody class="border-bottom border-2">
+        <tr>
+          <th>ニックネーム</th>
+          <td><%= @nickname %></td>
+        </tr>
+          <% @tweets.each do |tweet| %>
+            <tr>
+              <th>タイトル</th>
+              <td><%= tweet.title %></td>
+            </tr>
+            <tr>
+              <th>内容</th>
+              <td><%= tweet.content %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="container h-75">
+      <div class="card mx-auto mt-5" style="width: 75%;">
+      <div class="card-body">
+      <div class="h2 bg-warning"><%= "#{@nickname}さんの投稿一覧" %></div>
+    </div>
+    <table class="table table-hover">
+      <thead class=" border-bottom border-primary table-light">
+        <tr>
+          <th scope="col" class="w-20" style="font-size: 15px;">ニックネーム</th>
+          <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
+          <th scope="col" class="w-20" style="font-size: 15px;">投稿日</th>
+        </tr>
+      </thead>
+      <% @tweets.each do |tweet| %>
+        <tbody class="border-bottom border-2">
+          <tr>
+            <th><%= tweet.title %></th>
+            <th><%= l tweet.created_at %></th>
+            <th><%= link_to "詳細", tweet_path(tweet.id)%></th>
+          </tr>
+        </tbody>
+      <% end %>
+  </table>
+  <%= paginate @tweets%>
+
+
+    </div>
+    </div>
+    </div>
+  </main>
+
+
+
+
+  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary">
+    <p class="text-white">Cover template for <a href="/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+  </footer>
 </div>
+
+
+</body>
+</html>
