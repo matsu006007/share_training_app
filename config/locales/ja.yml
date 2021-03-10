@@ -1,0 +1,16 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "が空になっています"
+            email:
+              blank: "が空になっています"
+            nickname:
+              blank: "が空になっています"
