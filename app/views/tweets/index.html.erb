@@ -58,6 +58,14 @@
   height: 50px;
   width: 70px;
 }
+
+     .title-name{
+       margin-right: 20px;
+     }
+
+     b{
+       color: yellow;
+     }
 </style>
 
     
@@ -74,13 +82,15 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse position-relative" id="navbarsExampleDefault pull-right">
-      <h1 class="text-white">ShareTraining</h1>
+      <div class="title-name">
+        <h1 class="text-white">ShareTraining</h1>
+      </div>
+      <div class="text-light">
+        <h5>ようこそ<b><%="#{current_user.nickname}"%></b>さん</h5>
+      </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
-          <a class="nav-link btn-warning text-dark w-100" href="/tweets/new" >投稿する</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out"  >お悩み解消ページ</a>
+          <a class="nav-link btn btn-warning text-dark w-100" href="/tweets/new" >投稿する</a>
         </li>
         <li class="nav-item">
           <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out" data-method="delete" >ログアウト</a>
@@ -91,8 +101,8 @@
 </nav>
 
   <main class="px-3" style= "margin-top:100px">
-    <div class="container ">
-    <div class="card mx-auto " style="width: 50%;">
+    <div class="container">
+    <div class="card mx-auto " style="width: 75%;">
   <div class="card-body ">
     <span class="display-6 bg-warning">投稿一覧（最新順）</span>
   </div>
@@ -101,6 +111,7 @@
     <tr>
       <th scope="col" class="w-20" style="font-size: 15px;">ニックネーム</th>
       <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
+      <th scope="col" class="w-20" style="font-size: 15px;">投稿日</th>
     </tr>
     </thead>
   <% @tweets.each do |tweet| %>
@@ -108,6 +119,7 @@
       <tr>
         <th><%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %></th>
         <th><%= tweet.title %></th>
+        <th><%= l tweet.created_at %></th>
         <th><%= link_to "詳細", tweet_path(tweet.id)%></th>
       </tr>
     </tbody>

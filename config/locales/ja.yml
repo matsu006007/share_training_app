@@ -1,0 +1,18 @@
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "が空になっています"
+              too_short: "は6文字以上入力してください"
+            email:
+              blank: "が空になっています"
+              taken: "はすでに使われています"
+            nickname:
+              blank: "が空になっています"
