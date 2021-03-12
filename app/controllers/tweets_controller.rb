@@ -25,11 +25,10 @@ class TweetsController < ApplicationController
     @messages = Message.includes(:tweet)
   end
 
-
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :content, :genre_id).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:title, :content, :genre_id, :image).merge(user_id: current_user.id)
   end
 
 end
