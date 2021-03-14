@@ -11,6 +11,8 @@ ja:
             password:
               blank: "が空になっています"
               too_short: "は6文字以上入力してください"
+            current_password: 
+              blank: "を入力するか、新しいパスワードを入力してください"
             email:
               blank: "が空になっています"
               taken: "はすでに使われています"
