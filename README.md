@@ -5,6 +5,9 @@
 | Column  | Type  | Option |
 | ------- | ----- | ------ |
 | nickname | string | null: false |
+| image    | string | null: false |
+| target  | string | null: false  |
+| comment | text   | null: false  |
 | email    | string | null: false |
 | password | string | null: false |
 
@@ -18,6 +21,7 @@
 
 | Column | Type | Option |
 | ------ | ---- | ------ |
+| title  | string | null: false |
 | content | text | null: false |
 | genre_id | string | null: false |
 | user | references | foreign_key: true |
@@ -35,6 +39,7 @@
 | ------ | ---- | ------ |
 | text   | text | null: false |
 | user   | references | foreign_key: true |
+| tweet  | references | foreign_key: true |
 
 ### Association
 

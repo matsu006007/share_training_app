@@ -3,6 +3,9 @@ ja:
     attributes:
       user:
         nickname: "ニックネーム"
+        target: "目標(任意)"
+        comment: "コメント(任意)"
+        image: "プロフィール画像(任意)"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
