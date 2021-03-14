@@ -22,14 +22,13 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @message = Message.new
-    @messages = Message.includes(:tweet)
+    @messages = @tweet.messages
   end
-
 
   private
 
   def tweet_params
-    params.require(:tweet).permit(:title, :content, :genre_id).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:title, :content, :genre_id, :image).merge(user_id: current_user.id)
   end
 
 end
