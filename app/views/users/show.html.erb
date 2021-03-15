@@ -103,9 +103,14 @@
             <h1 class="text-white">ShareTraining</h1>
           </div>
           <div class="text-light">
-            <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-danger"}) %></b>さん</h5>
+            <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning
+
+"}) %></b>さん</h5>
           </div>
           <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
+            <li class="nav-item ">
+              <a class="nav-link btn btn-warning text-dark w-100" href="/tweets/new" >投稿する</a>
+            </li>
             <li class="nav-item ">
               <a class="nav-link btn btn-warning text-dark w-100" href="/tweets" >投稿一覧へ戻る</a>
             </li>
