@@ -52,8 +52,17 @@
         justify-content: center;
       }
 
+      .bg-img{
+        background-image: url("/assets/main_6.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+
+
       .navbar-brand {
-  background: url("assets/fukkin.png") no-repeat left center;
+  background-image: url("/assets/fukkin.png") no-repeat left center;
   background-size: cover;
   height: 50px;
   width: 70px;
@@ -66,6 +75,10 @@
      b{
        color: yellow;
      }
+
+     .text-warning{
+       text-decoration: none;
+     }
 </style>
 
     
@@ -73,7 +86,7 @@
     <link href="cover.css" rel="stylesheet">
   </head>
 
-  <body class="d-flex h-100 text-left text-dark" >
+  <body class="d-flex h-100 text-left text-dark p-3 p-sm-5 mb-4 bg-img" >
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
   <nav class="navbar navbar-expand-md navbar-dark bg-secondary bg-gradient fixed-top pt-2 pb-2 d-flex align-items-center">
   <div class="container-fluid">
@@ -86,7 +99,7 @@
         <h1 class="text-white">ShareTraining</h1>
       </div>
       <div class="text-light">
-        <h5>ようこそ<b><%="#{current_user.nickname}"%></b>さん</h5>
+        <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
@@ -117,10 +130,10 @@
   <% @tweets.each do |tweet| %>
     <tbody class="border-bottom border-2">
       <tr>
-        <th><%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %></th>
+        <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-warning"}) %></th>
         <th><%= tweet.title %></th>
         <th><%= l tweet.created_at %></th>
-        <th><%= link_to "詳細", tweet_path(tweet.id)%></th>
+        <th><%= link_to("詳細", tweet_path(tweet.id), {class: "text-warning"}) %></th>
       </tr>
     </tbody>
   <% end %>
@@ -133,7 +146,7 @@
 
 
 
-  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary">
+  <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary bg-gradient">
     <p class="text-white">Cover template for <a href="/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
   </footer>
 </div>

@@ -52,19 +52,29 @@
         margin-top: 10px;
       }
 
+      .bg-img{
+        background-image: url("/assets/main_6.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+      }
+
+
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="d-flex h-100 text-center text-dark">
-    
+
+<body class="d-flex h-100 text-center text-dark p-3 p-sm-5 mb-4 bg-img" >
+
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-5">
     <div>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active btn-warning" aria-current="page" href="/" >トップページへ戻る</a>
+        <a class="nav-link btn btn-warning" aria-current="page" href="/" >トップページへ戻る</a>
         <a class="nav-link btn btn-warning" href="/users/sign_in" >ログイン</a>
       </nav>
     </div>
@@ -80,8 +90,8 @@
 
 
   <div class="form-group">
-  <%= f.label :nickname %>
-  <%= f.text_field :nickname, autofocus: true, autocomplete: 'nickname', class: 'form-control' %>
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: 'nickname', class: 'form-control' %>
   </div>
 
   <div class="form-group">
