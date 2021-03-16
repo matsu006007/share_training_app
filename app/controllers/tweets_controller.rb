@@ -25,6 +25,27 @@ class TweetsController < ApplicationController
     @messages = @tweet.messages
   end
 
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet.id)
+    else
+      @tweet = Tweet.new(tweet_params)
+      render :edit
+    end
+  end
+
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    if @tweet.destroy
+      redirect_to user_path(@tweet.user_id)
+    end
+  end
+
   private
 
   def tweet_params

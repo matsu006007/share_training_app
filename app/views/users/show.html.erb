@@ -82,6 +82,11 @@
       position: relative;
     }
 
+    .text-warning{
+       text-decoration: none;
+    }
+
+
 
 </style>
 
@@ -102,10 +107,8 @@
           <div class="title-name">
             <h1 class="text-white">ShareTraining</h1>
           </div>
-          <div class="text-light">
-            <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning
-
-"}) %></b>さん</h5>
+          <div class="nickname-content">
+            <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
           </div>
           <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
             <li class="nav-item ">
@@ -126,7 +129,7 @@
       <div class="container">
         <div class="card mx-auto" style="width: 50%;">
           <div class="card-body ">
-            <div class="h2 bg-warning text-center"><%= "#{@nickname}さんのプロフィール" %></div>
+            <div class="h2 bg-warning text-center"><%= "プロフィール" %></div>
           </div>
           <% if @user.image.blank? %>
             <div class="image">
@@ -201,7 +204,7 @@
 
 
   <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary">
-    <p class="text-white">Cover template for <a href="/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <p class="text-white"> ©︎ training record </p>
   </footer>
   </div>
 
