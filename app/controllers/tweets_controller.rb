@@ -30,6 +30,13 @@ class TweetsController < ApplicationController
   end
 
   def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet.id)
+    else
+      @tweet = Tweet.new(tweet_params)
+      render :edit
+    end
   end
 
   def destroy
