@@ -76,7 +76,8 @@
        color: yellow;
      }
 
-     .text-warning{
+     .text-warning,
+     .text-dark{
        text-decoration: none;
      }
 </style>
@@ -130,7 +131,7 @@
   <% @tweets.each do |tweet| %>
     <tbody class="border-bottom border-2">
       <tr>
-        <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-warning"}) %></th>
+        <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-dark"}) %></th>
         <th><%= tweet.title %></th>
         <th><%= l tweet.created_at %></th>
         <th><%= link_to("詳細", tweet_path(tweet.id), {class: "text-warning"}) %></th>
