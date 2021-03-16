@@ -23,6 +23,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @message = Message.new
     @messages = @tweet.messages
+    @like = Like.new
   end
 
   def edit
