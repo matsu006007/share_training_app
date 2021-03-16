@@ -73,6 +73,19 @@
         position: relative;
       }
 
+      .navbar-brand {
+        background: url('/assets/fukkin.png') no-repeat left center;
+        background-size: cover;
+        height: 50px;
+        width: 70px;
+      }
+
+      .text-warning{
+       text-decoration: none;
+     }
+
+
+
 
 </style>
 
@@ -93,8 +106,8 @@
         <div class="title-name">
           <h1 class="text-white">ShareTraining</h1>
         </div>
-        <div class="text-light">
-          <h5>ようこそ<b><%="#{current_user.nickname}"%></b>さん</h5>
+        <div class="nickname-content">
+          <h5>ようこそ<b><%= link_to("#{current_user.nickname}", user_path(current_user.id), {class: "text-warning"}) %></b>さん</h5>
         </div>
         <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
           <li class="nav-item ">
@@ -121,7 +134,7 @@
     </div>
     
     <div class="form-group">
-      <%= f.collection_select( :genre_id,Genre.all, :id, :name, {label: 'ジャンル'}) %>
+      <%= f.collection_select( :genre_id,Genre.all, :id, :name, {label: 'ジャンルを選んでください'}) %>
     </div>
         
     <div class="form-group">
@@ -144,7 +157,7 @@
 
 
   <footer class="fixed-bottom mt-auto text-white-50  text-center bg-secondary">
-    <p class="text-white">Cover template for <a href="/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    <p class="text-white"> ©︎ training record </p>
   </footer>
 </div>
 
