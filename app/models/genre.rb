@@ -8,7 +8,7 @@ class Genre < ActiveHash::Base
     { id: 6, name: 'ダンス'},
     { id: 7, name: '栄養'},
     { id: 8, name: '相談'},
-    { id: 9, name: '大至急'}
+    { id: 9, name: '相談（至急)'}
   ]
 
   include ActiveHash::Associations
