@@ -190,7 +190,7 @@
           <h3>コメント</h3>
 
           <%= form_with(model: [@tweet,@message], url: tweet_messages_path(@tweet.id)) do |f| %>
-          <%= f.text_area :text %>
+          <%= f.text_field :text %>
           <%= f.submit '送信' %>
           <% end %>
 
