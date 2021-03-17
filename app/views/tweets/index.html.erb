@@ -105,10 +105,13 @@
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-md-0 position-absolute top-50 end-0 translate-middle-y">
         <li class="nav-item ">
-          <a class="nav-link btn btn-warning text-dark w-100" href="/tweets/new" >投稿する</a>
+          <%= link_to("マイページ", user_path(current_user.id), {class: "nav-link btn btn-warning text-dark w-100"}) %>
+        </li>
+        <li class="nav-item ">
+          <%= link_to("投稿する", new_tweet_path, {class: "nav-link btn btn-warning text-dark w-100"}) %>
         </li>
         <li class="nav-item">
-          <a class="nav-link btn btn-warning text-dark w-100" href="/users/sign_out" data-method="delete" >ログアウト</a>
+          <%= link_to("ログアウト", destroy_user_session_path, {class: "nav-link btn btn-warning text-dark w-100", method: :delete}) %>
         </li>
       </ul>
     </div>
@@ -116,7 +119,7 @@
 </nav>
 
   <main class="px-3" style= "margin-top:50px">
-    <div class="container">
+    <div class="container-fluid">
     <div class="card mx-auto " style="width: 75%;">
   <div class="card-body" style="background-color: #FFFFDD">
     <span class="display-6 bg-warning">投稿一覧（最新順）</span>
@@ -135,8 +138,17 @@
         <th><%= link_to("#{tweet.user.nickname}", user_path(tweet.user_id), {class: "text-dark"}) %></th>
         <th><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
         <th><%= l tweet.created_at %></th>
-        <th><a class="text-danger" style="font-size: 21px">♡</a><%= tweet.liked_users.count %></th>
-        <th>至急</th>
+        <th class="d-flex justify-content-evenly">
+          <div class="text-danger" style="font-size: 20px">♡</div>
+          <div><%= tweet.liked_users.count %></div>
+        </th>
+        <th>
+          <% if tweet.genre_id == "9" %>
+            <button type="button" class="btn btn-danger"><%= tweet.genre.name%></button>
+          <% elsif tweet.genre_id == "8" %>
+            <button type="button" class="btn btn-warning"><%= tweet.genre.name%></button>
+          <% end %>
+        </th>
       </tr>
     </tbody>
   <% end %>
