@@ -84,11 +84,18 @@
 
     .text-warning,
     .text-dark,
-    .text-danger{
+    .like-btn{
        text-decoration: none;
     }
 
+    .like-btn {
+        font-size: 15px;
+        color: #e54747;
+    }
 
+     .pagination{
+       padding-top: 10px;
+     }
 
 </style>
 
@@ -127,7 +134,7 @@
       </div>
     </nav>
 
-    <main class="px-3 " style= "margin-top:100px">
+    <main class="px-3 " style= "margin-top:30px">
       <div class="container">
         <div class="card mx-auto" style="width: 50%;">
           <div class="card-body ">
@@ -142,12 +149,6 @@
               <img src=<%= @user.image %> class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
             </div>
           <% end %>
-
-          <h3>いいねしている投稿</h3>
-            <% @user.liked_tweets.each do |tweet| %>
-              <%= tweet.user.email %>
-              <%= tweet.content %>
-            <% end %>
 
           <table class="table">
             <tbody class="border-bottom border-2">
@@ -172,6 +173,7 @@
                   <% end %>
               </tr>
             </tbody>
+
           </table>
           <% if user_signed_in? && current_user.id == @user.id %>
             <div class="d-flex justify-content-center mb-4">
@@ -189,26 +191,39 @@
             <tr>
               <th scope="col" class="w-20" style="font-size: 15px;">タイトル</th>
               <th scope="col" class="w-20" style="font-size: 15px;">投稿日</th>
-              <th scope="col" class="w-20" style="font-size: 15px;">いいね！</th>
+              <th scope="col" class="w-20" style="font-size: 15px;">イイネ！</th>
+              <th scope="col" class="w-20" style="font-size: 15px;"></th>
             </tr>
           </thead>
         <% @tweets.each do |tweet| %>
           <tbody class="border-bottom border-2">
             <tr>
               <th><%= link_to("#{tweet.title}", tweet_path(tweet.id), {class: "text-dark"}) %></th>
-              <th><%= l tweet.created_at %></th>
-              <th><a class="text-danger" style="font-size: 21px">♡</a><%= tweet.liked_users.count %></th>
+              <th><%= link_to("#{l tweet.created_at}",tweet_path(tweet.id),{class: "text-dark"}) %></th>
+              <th>
+                <a class="fa fa-heart like-btn" style="font-size: 18px"><%= tweet.likes.count %><a>
+              </th>
+              <% if tweet.genre_id == "9" %>
+                <th>
+                  <a class="fas fa-clock text-danger" style="font-size:20px"></a>
+                </th>
+              <% elsif tweet.genre_id == "8" %>
+                <th>
+                  <a class="fas fa-clock text-warning" style="font-size:20px"></a>
+                </th>
+              <% else %>
+                <th>
+                  <a></a>
+                </th>
+              <% end %>
             </tr>
           </tbody>
         <% end %>
         </table>
-        <%= paginate @tweets%>
         </div>
-
       </div>
-
     </main>
-
+<%= paginate @tweets%>
 
 
 
