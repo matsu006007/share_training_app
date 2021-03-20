@@ -163,7 +163,7 @@
             <div class="image-content d-flex justify-content-start">
               <% if @tweet.user.image.blank? %>
                 <div class="image">
-                  <img src="/assets/no_image.png" class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
+                  <img src="<%= asset_path "no_image.png" %>" class = "icon_image img-thumbnail rounded-circle mx-auto d-block mb-3">
                 </div>
               <% else %>
                 <div class="image">
