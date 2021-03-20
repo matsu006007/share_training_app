@@ -62,5 +62,5 @@ Rails.application.configure do
 
   ActionCable.server.config.disable_request_forgery_protection = true
   config.action_cable.url = "ws://54.92.57.45/cable"
-  config.action_cable.allowed_request_origin = ['http://54.92.57.45']
+  config.action_cable.allowed_request_origins = ['http://54.92.57.45']
 end
