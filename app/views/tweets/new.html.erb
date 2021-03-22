@@ -83,6 +83,10 @@
       .text-warning{
        text-decoration: none;
      }
+     
+      .fa-dumbbell{
+       font-size: 50px;
+     }
 
 
 
@@ -125,7 +129,11 @@
     <div class="container ">
     <div class="row p-2">
     <div class="card mx-auto " style="width: 50vw;">
-        <h1 class="bg-warning text-center mt-2">投稿する</h1>
+      <div class="d-flex justify-content-around bg-warning mt-2">
+        <i class="fas fa-dumbbell"></i>
+        <h1 class="text-center mt-2">投稿する</h1>
+        <i class="fas fa-dumbbell"></i>
+      </div>
   <div class="card-body px-5">
   <%= bootstrap_form_with model: @tweet, local: true do |f| %>
 
