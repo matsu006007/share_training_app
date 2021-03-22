@@ -2,11 +2,10 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
-
   end
 
   def new
-    @tweet = Tweet.new
+      @tweet = Tweet.new
   end
 
   def create
@@ -28,6 +27,11 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find(params[:id])
+    if current_user == @tweet.user
+      render :edit
+    else
+      redirect_to tweets_path
+    end
   end
 
   def update

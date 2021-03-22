@@ -91,22 +91,22 @@
 
   <div class="form-group">
     <%= f.label :nickname %>
-    <%= f.text_field :nickname, autofocus: true, autocomplete: 'nickname', class: 'form-control' %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: 'nickname', placeholder: '(例)タロウ', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: '(例)test@test.com', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: 'current-password', placeholder: '半角英数字6ケタ以上', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'current-password', placeholder: '上記で設定したパスワード', class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -117,12 +117,12 @@
 
   <div class="form-group">
     <%= f.label :target %>
-    <%= f.text_field :target, autofocus: true, autocomplete: 'target', class: 'form-control' %>
+    <%= f.text_field :target, autofocus: true, autocomplete: 'target', placeholder: '(例)6ヶ月で10キロ減量', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :comment %>
-    <%= f.text_area :comment, autofocus: true, autocomplete: 'comment', class: 'form-control' %>
+    <%= f.text_area :comment, autofocus: true, autocomplete: 'comment', placeholder: '(例)目標を達成する為に週３回5キロのランニングをする。', class: 'form-control' %>
   </div>
 
   <div class="form-group">

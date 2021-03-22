@@ -90,12 +90,12 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: '(例)test@test.com', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: 'current-password', placeholder: 'サインインで設定したパスワード', class: 'form-control' %>
   </div>
 
   <div class="form-group">

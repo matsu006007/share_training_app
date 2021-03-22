@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if current_user.id == @user.id
+      render :edit
+    else
+      redirect_to tweets_path
+    end
   end
 
 end
