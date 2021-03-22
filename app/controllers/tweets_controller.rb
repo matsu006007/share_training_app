@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :Login_check
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
@@ -56,5 +57,12 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :content, :genre_id, :image).merge(user_id: current_user.id)
   end
+
+  def Login_check
+    unless user_signed_in?
+      redirect_to root_path
+    end
+  end
+
 
 end
